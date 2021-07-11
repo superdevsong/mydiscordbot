@@ -102,13 +102,24 @@ public class stoneBot extends ListenerAdapter {
 		    	channel.sendMessage("사랑스럽다 ").queue();
 		    } else if("~도움".equals(command[0])) {
 		    	help(channel);
+		    } else if("~뿡".equals(command[0])){
+		    	gas(channel);
+		    } else if("~놀아줘".equals(command[0])) {
+		    	enjoy(channel);
 		    }
 
 
 		    super.onGuildMessageReceived(event);
 		  }
+		  private void gas(TextChannel channel) {
+			  channel.sendMessage("https://tenor.com/view/totoro-gah-scared-what-ahhh-gif-4880952").queue();
+			  channel.sendMessage("으아아아악!").queue();
+		  }
+		  private void enjoy(TextChannel channel) {
+			  channel.sendMessage("https://tenor.com/view/totoro-mei-friends-cute-bonding-gif-4073907").queue();
+		  }
 		  private void help(TextChannel channel) {
-			  channel.sendMessage("도와드리죠^^\n ~시작 노래시작\n~다음 다음노래시작\n~멈춰 노래멈춤\n~다시재생 다시 재생함\n~가라 노래끝나고 나감\n정연이 이쁨\n이정연 사랑스러움 ").queue();
+			  channel.sendMessage("도와드리죠^^\n ~시작 노래시작\n~다음 다음노래시작\n~멈춰 노래멈춤\n~다시재생 다시 재생함\n~가라 노래끝나고 나감\n정연이 이쁨\n이정연 사랑스러움\n~뿡\n~놀아줘 ").queue();
 		  }
 
 		  private void loadAndPlay(final TextChannel channel, final String trackUrl,final VoiceChannel vchannel) {
