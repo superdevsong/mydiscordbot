@@ -86,117 +86,121 @@ public class stoneBot extends ListenerAdapter {
 		    final TextChannel channel = event.getChannel();
 		    VoiceChannel vchannel = event.getMember().getVoiceState().getChannel();
 		  
-		    if ("~½ÃÀÛ".equals(command[0]) && command.length == 2) {
-		      loadAndPlay(channel, command[1],vchannel);
-		    } else if ("~´ÙÀ½".equals(command[0])) {
-		      skipTrack(event.getChannel());
-		    } else if ("~¸ØÃç".equals(command[0])) {
-			      stTrack(event.getChannel());
-		    } else if ("~´Ù½ÃÀç»ı".equals(command[0])) {
-			      reTrack(event.getChannel());
-		    } else if ("~°¡¶ó".equals(command[0])) {
-			      deTrack(event.getChannel());
-		    } else if("Á¤¿¬ÀÌ".equals(command[0])) {
-		    	channel.sendMessage("¾Æ¸§´ä´Ù ").queue();
-		    } else if("ÀÌÁ¤¿¬".equals(command[0])) {
-		    	channel.sendMessage("»ç¶û½º·´´Ù ").queue();
-		    } else if("~µµ¿ò".equals(command[0])) {
-		    	help(channel);
-		    } else if("~»×".equals(command[0])){
-		    	gas(channel);
-		    } else if("~³î¾ÆÁà".equals(command[0])) {
-		    	enjoy(channel);
-		    }
+		    if ("~ì‹œì‘".equals(command[0]) && command.length == 2) {
+			      loadAndPlay(channel, command[1],vchannel);
+			    } else if ("~ë‹¤ìŒ".equals(command[0])) {
+			      skipTrack(event.getChannel());
+			    } else if ("~ë©ˆì¶°".equals(command[0])) {
+				      stTrack(event.getChannel());
+			    } else if ("~ë‹¤ì‹œì¬ìƒ".equals(command[0])) {
+				      reTrack(event.getChannel());
+			    } else if ("~ê°€ë¼".equals(command[0])) {
+				      deTrack(event.getChannel());
+			    } else if("ì •ì—°ì´".equals(command[0])) {
+			    	channel.sendMessage("ì•„ë¦„ë‹µë‹¤ ").queue();
+			    } else if("ì´ì •ì—°".equals(command[0])) {
+			    	channel.sendMessage("ì‚¬ë‘ìŠ¤ëŸ½ë‹¤ ").queue();
+			    } else if("~ë„ì›€".equals(command[0])) {
+			    	help(channel);
+			    } else if("~ë¿¡".equals(command[0])){
+			    	gas(channel);
+			    } else if("~ë†€ì•„ì¤˜".equals(command[0])) {
+			    	enjoy(channel);
+			    } else if("~ìŠ¬ë¡œíˆ¬".equals(command[0])) {
+			    	sloTwo(channel);
+			    }
+			    super.onGuildMessageReceived(event);
+			  }
+		  	  private void sloTwo(TextChannel channel) {
+		  		  channel.sendMessage("https://cdn.discordapp.com/attachments/843106178862415895/863784219662221412/album_1faauddva.gif").queue();
+		  		  
+		  	  }
+			  private void gas(TextChannel channel) {
+				  channel.sendMessage("https://tenor.com/view/totoro-gah-scared-what-ahhh-gif-4880952").queue();
+				  channel.sendMessage("ìœ¼ì•„ì•„ì•„ì•…!").queue();
+			  }
+			  private void enjoy(TextChannel channel) {
+				  channel.sendMessage("https://tenor.com/view/totoro-mei-friends-cute-bonding-gif-4073907").queue();
+			  }
+			  private void help(TextChannel channel) {
+				  channel.sendMessage("ë„ì™€ë“œë¦¬ì£ ^^\n ~ì‹œì‘ ë…¸ë˜ì‹œì‘\n~ë‹¤ìŒ ë‹¤ìŒë…¸ë˜ì‹œì‘\n~ë©ˆì¶° ë…¸ë˜ë©ˆì¶¤\n~ë‹¤ì‹œì¬ìƒ ë‹¤ì‹œ ì¬ìƒí•¨\n~ê°€ë¼ ë…¸ë˜ëë‚˜ê³  ë‚˜ê°\nì •ì—°ì´ ì´ì¨\nì´ì •ì—° ì‚¬ë‘ìŠ¤ëŸ¬ì›€\n~ë¿¡\n~ë†€ì•„ì¤˜ ").queue();
+			  }
 
-
-		    super.onGuildMessageReceived(event);
-		  }
-		  private void gas(TextChannel channel) {
-			  channel.sendMessage("https://tenor.com/view/totoro-gah-scared-what-ahhh-gif-4880952").queue();
-			  channel.sendMessage("À¸¾Æ¾Æ¾Æ¾Ç!").queue();
-		  }
-		  private void enjoy(TextChannel channel) {
-			  channel.sendMessage("https://tenor.com/view/totoro-mei-friends-cute-bonding-gif-4073907").queue();
-		  }
-		  private void help(TextChannel channel) {
-			  channel.sendMessage("µµ¿Íµå¸®ÁÒ^^\n ~½ÃÀÛ ³ë·¡½ÃÀÛ\n~´ÙÀ½ ´ÙÀ½³ë·¡½ÃÀÛ\n~¸ØÃç ³ë·¡¸ØÃã\n~´Ù½ÃÀç»ı ´Ù½Ã Àç»ıÇÔ\n~°¡¶ó ³ë·¡³¡³ª°í ³ª°¨\nÁ¤¿¬ÀÌ ÀÌ»İ\nÀÌÁ¤¿¬ »ç¶û½º·¯¿ò\n~»×\n~³î¾ÆÁà ").queue();
-		  }
-
-		  private void loadAndPlay(final TextChannel channel, final String trackUrl,final VoiceChannel vchannel) {
-		    GuildMusicManager musicManager = getGuildAudioPlayer(channel.getGuild());
-
-		    playerManager.loadItemOrdered(musicManager, "ytsearch:"+trackUrl, new AudioLoadResultHandler() {
-		      @Override
-		      public void trackLoaded(AudioTrack track) {
-		        channel.sendMessage("Adding to queue " + track.getInfo().title).queue();
-
-		        play(channel.getGuild(), musicManager, track,vchannel);
-		      }
-
-		      @Override
-		      public void playlistLoaded(AudioPlaylist playlist) {
-		        AudioTrack firstTrack = playlist.getSelectedTrack();
-
-		        if (firstTrack == null) {
-		          firstTrack = playlist.getTracks().get(0);
-		        }
-
-		        channel.sendMessage("³ë·¡¸¦ Ãß°¡ÇÏ¿´½À´Ï´Ù. " + firstTrack.getInfo().title + " (first track of playlist " + playlist.getName() + ")").queue();
-
-		        play(channel.getGuild(), musicManager, firstTrack, vchannel);
-		      }
-
-		      @Override
-		      public void noMatches() {
-		        channel.sendMessage("Nothing found by " + trackUrl).queue();
-		      }
-
-		      @Override
-		      public void loadFailed(FriendlyException exception) {
-		        channel.sendMessage("Could not play: " + exception.getMessage()).queue();
-		      }
-		    });
-		  }
-
-		  private void play(Guild guild, GuildMusicManager musicManager, AudioTrack track, VoiceChannel vchannel) {
-		    connectToFirstVoiceChannel(guild.getAudioManager(), vchannel);
-
-		    musicManager.scheduler.queue(track);
-		  }
-
-		  private void skipTrack(TextChannel channel) {
-		    GuildMusicManager musicManager = getGuildAudioPlayer(channel.getGuild());
-		    musicManager.scheduler.nextTrack();
-
-		    channel.sendMessage("´ÙÀ½°îÀ» Æ²°Ô¿ä ^^").queue();
-		  }
-		  private void stTrack(TextChannel channel) {
+			  private void loadAndPlay(final TextChannel channel, final String trackUrl,final VoiceChannel vchannel) {
 			    GuildMusicManager musicManager = getGuildAudioPlayer(channel.getGuild());
-			    musicManager.scheduler.stopTrack();
 
-			    channel.sendMessage("³ë·¡¸¦ ¸ØÃâ°Ô¿ä ^^").queue();
+			    playerManager.loadItemOrdered(musicManager, "ytsearch:"+trackUrl, new AudioLoadResultHandler() {
+			      @Override
+			      public void trackLoaded(AudioTrack track) {
+			        channel.sendMessage("Adding to queue " + track.getInfo().title).queue();
+
+			        play(channel.getGuild(), musicManager, track,vchannel);
+			      }
+
+			      @Override
+			      public void playlistLoaded(AudioPlaylist playlist) {
+			        AudioTrack firstTrack = playlist.getSelectedTrack();
+
+			        if (firstTrack == null) {
+			          firstTrack = playlist.getTracks().get(0);
+			        }
+
+			        channel.sendMessage("ë…¸ë˜ë¥¼ ì¶”ê°€í•˜ì˜€ìŠµë‹ˆë‹¤. " + firstTrack.getInfo().title + " (first track of playlist " + playlist.getName() + ")").queue();
+
+			        play(channel.getGuild(), musicManager, firstTrack, vchannel);
+			      }
+
+			      @Override
+			      public void noMatches() {
+			        channel.sendMessage("Nothing found by " + trackUrl).queue();
+			      }
+
+			      @Override
+			      public void loadFailed(FriendlyException exception) {
+			        channel.sendMessage("Could not play: " + exception.getMessage()).queue();
+			      }
+			    });
 			  }
-		  private void reTrack(TextChannel channel) {
+
+			  private void play(Guild guild, GuildMusicManager musicManager, AudioTrack track, VoiceChannel vchannel) {
+			    connectToFirstVoiceChannel(guild.getAudioManager(), vchannel);
+
+			    musicManager.scheduler.queue(track);
+			  }
+
+			  private void skipTrack(TextChannel channel) {
 			    GuildMusicManager musicManager = getGuildAudioPlayer(channel.getGuild());
-			    musicManager.scheduler.resumeTrack();
+			    musicManager.scheduler.nextTrack();
 
-			    channel.sendMessage("´Ù½Ã Àç»ıÇÒ°Ô¿ä ^^").queue();
+			    channel.sendMessage("ë‹¤ìŒê³¡ì„ í‹€ê²Œìš” ^^").queue();
 			  }
-		  private void deTrack(TextChannel channel) {
-			    GuildMusicManager musicManager = getGuildAudioPlayer(channel.getGuild());
-			    musicManager.scheduler.deleteTrack();
-			    connectToFirstVoiceChannel(channel.getGuild().getAudioManager(),null);
-			    channel.sendMessage("±×¸¸ ³ª°¡º¸°Ú½À´Ï´Ù.").queue();
-			  }
+			  private void stTrack(TextChannel channel) {
+				    GuildMusicManager musicManager = getGuildAudioPlayer(channel.getGuild());
+				    musicManager.scheduler.stopTrack();
 
-		  private static void connectToFirstVoiceChannel(AudioManager audioManager, VoiceChannel vchannel) {
-			  if(vchannel==null||audioManager==null) {
-			    	audioManager.closeAudioConnection();
-			  }
-			  else {
-				  if (!audioManager.isConnected() || !audioManager.getConnectedChannel().equals(vchannel)) {
-		    		audioManager.openAudioConnection(vchannel);
+				    channel.sendMessage("ë…¸ë˜ë¥¼ ë©ˆì¶œê²Œìš” ^^").queue();
 				  }
-			  }
-		 }
+			  private void reTrack(TextChannel channel) {
+				    GuildMusicManager musicManager = getGuildAudioPlayer(channel.getGuild());
+				    musicManager.scheduler.resumeTrack();
+
+				    channel.sendMessage("ë‹¤ì‹œ ì¬ìƒí• ê²Œìš” ^^").queue();
+				  }
+			  private void deTrack(TextChannel channel) {
+				    GuildMusicManager musicManager = getGuildAudioPlayer(channel.getGuild());
+				    musicManager.scheduler.deleteTrack();
+				    connectToFirstVoiceChannel(channel.getGuild().getAudioManager(),null);
+				    channel.sendMessage("ê·¸ë§Œ ë‚˜ê°€ë³´ê² ìŠµë‹ˆë‹¤.").queue();
+				  }
+
+			  private static void connectToFirstVoiceChannel(AudioManager audioManager, VoiceChannel vchannel) {
+				  if(vchannel==null||audioManager==null) {
+				    	audioManager.closeAudioConnection();
+				  }
+				  else {
+					  if (!audioManager.isConnected() || !audioManager.getConnectedChannel().equals(vchannel)) {
+			    		audioManager.openAudioConnection(vchannel);
+					  }
+				  }
+			 }
 }
