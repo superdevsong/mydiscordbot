@@ -85,7 +85,7 @@ public class stoneBot extends ListenerAdapter {
 		    String[] command = event.getMessage().getContentRaw().split(" ", 2);
 		    final TextChannel channel = event.getChannel();
 		    VoiceChannel vchannel = event.getMember().getVoiceState().getChannel();
-		  
+		    
 		    if ("~시작".equals(command[0]) && command.length == 2) {
 			      loadAndPlay(channel, command[1],vchannel);
 			    } else if ("~다음".equals(command[0])) {
